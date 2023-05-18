@@ -1,0 +1,25 @@
+This script is implementing linear regression with one variable from scratch and comparing its performance with Scikit-Learn's implementation.
+
+Here's a breakdown of the code:
+ * Libraries: It starts by importing the required libraries - sklearn, matplotlib, pandas, numpy and seaborn.
+ * warmUpExercise(): This function is a warm-up exercise function that returns a 5x5 identity matrix using the numpy's identity function.
+ * computeCost(X, y, theta=[[0],[0]]): This function computes the cost for linear regression. It takes in X (input data), y (output data) and theta (parameters for hypothesis) and returns the cost (J).
+ * gradientDescent(X, y, theta=[[0],[0]], alpha=0.01, num_iters=1500): This function performs gradient descent to learn the theta parameters. It takes in X (input data), y (output data), theta (parameters for hypothesis), alpha (learning rate) and num_iters (number of iterations) and returns theta (learned parameters) and J_history (history of cost).
+
+In the __main__ section of the code:
+ * It sets up some display options for pandas and seaborn.
+ * It loads a dataset 'ex1data2.txt' using numpy's loadtxt function. The data is assumed to be comma-separated with the first row to be skipped.
+ * It separates the input (X) and output (y) data from the loaded dataset. A column of ones is also added to the input data to accommodate the theta_0 intercept term.
+ * A scatter plot is created to show the dataset.
+ * The initial cost is calculated using the computeCost function with initial theta values of 0.
+ * It performs gradient descent with the initial theta values of 0, a learning rate of 0.01 and 1500 iterations to get the learned theta values and cost history. It then prints the learned theta values.
+ * It plots the history of cost against the number of iterations.
+ * It plots the line of best fit (hypothesis function) against the dataset using the learned theta values. It also plots the line of best fit using sklearn's LinearRegression for comparison.
+ * It uses the learned theta values to predict the profit for cities with populations of 35000 and 70000.
+ * It generates a grid of theta_0 and theta_1 values and computes the cost for each combination.
+ * It then creates a 2D contour plot and a 3D surface plot of the cost function against the theta values. The learned theta values are also marked on the plots.
+
+ Results:
+ theta:  [-3.63029144  1.16636235]
+[4519.7678677]
+[45342.45012945]
