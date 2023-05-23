@@ -23,3 +23,26 @@ In the __main__ section of the code:
  theta:  [-3.63029144  1.16636235]
 [4519.7678677]
 [45342.45012945]
+
+
+Gradient Descent and Normal Equation are two different methods for finding the optimal parameters for a linear regression model. Here are the main differences between the two methods in the context of the script you posted:
+
+**Gradient Descent:**
+
+1. *Iterative:* Gradient Descent is an iterative algorithm. It starts with an initial guess for the parameters (theta in the script), and then repeatedly adjusts these parameters to make the cost function smaller. The adjustments continue until the cost function converges to a minimum value.
+
+2. *Learning Rate:* In Gradient Descent, a learning rate (alpha in the script) must be chosen. This parameter controls how big of a step the algorithm takes in each iteration. If the learning rate is too large, the cost function may not converge, while if it's too small, the cost function may take too long to converge.
+
+3. *Feature Scaling:* Before applying Gradient Descent, it's a good idea to normalize or standardize the features (as the script does). This helps the cost function converge more quickly.
+
+4. *Large Datasets:* Gradient Descent can be more suitable for cases where the number of features or the number of training examples is very large. In such cases, computing the normal equation could be computationally expensive or even infeasible.
+
+**Normal Equation:**
+
+1. *Analytical Solution:* The Normal Equation provides a direct, analytical solution for the optimal parameters of a linear regression model. There's no need to choose a learning rate or iterate until convergence - you just solve the equation in one step.
+
+2. *No Feature Scaling:* With the Normal Equation, there's no need to normalize or standardize the features.
+
+3. *Computational Complexity:* The Normal Equation involves matrix multiplication and finding the inverse of a matrix. The time complexity for these operations can be high (up to O(n^3) with the number of features n), so the Normal Equation could be slow or even infeasible if the number of features is very large. However, for datasets with a moderate number of features (up to a few thousand), the Normal Equation is often fast enough and can be a good choice.
+
+In summary, while Gradient Descent and Normal Equation can both be used to find the parameters for a linear regression model, they have different strengths and weaknesses, and the best choice depends on the specific characteristics of the dataset and problem.

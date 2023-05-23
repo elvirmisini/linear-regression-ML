@@ -1,3 +1,6 @@
+# This Python script applies linear regression using gradient descent to a dataset and 
+# then compares the result with scikit-learn's built-in linear regression method.
+
 from sklearn.linear_model import LinearRegression
 
 import matplotlib.pyplot as plt
@@ -10,6 +13,8 @@ def warmUpExercise():
     return(np.identity(5))
 
 
+# This function calculates the cost (mean squared error) of the predictions made by the
+# model for a given set of parameters, theta.
 def computeCost(X, y, theta=[[0],[0]]):
     m = y.size
     J = 0    
@@ -18,6 +23,9 @@ def computeCost(X, y, theta=[[0],[0]]):
     return(J)
 
 
+# This function applies the gradient descent algorithm to minimize the cost function and 
+# determine the optimal parameters (theta) for the linear regression model. It also records 
+# the cost at each iteration for later visualization.
 def gradientDescent(X, y, theta=[[0],[0]], alpha=0.01, num_iters=1500):
     m = y.size
     J_history = np.zeros(num_iters)
@@ -39,8 +47,10 @@ if __name__ == "__main__":
 
     warmUpExercise()
 
-    data = np.loadtxt('ex1data2.txt', delimiter=',', skiprows=1)
+    data = np.loadtxt('ex1data1.txt', delimiter=',', skiprows=1)
 
+    # Splits the data into the feature matrix X and target vector y, adding a column of ones 
+    # to X for the bias term.
     X = np.c_[np.ones(data.shape[0]),data[:,0]]
     y = np.c_[data[:,1]]
     plt.scatter(X[:,1], y, s=30, c='r', marker='x', linewidths=1)
